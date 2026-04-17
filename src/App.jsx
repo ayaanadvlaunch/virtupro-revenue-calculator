@@ -197,9 +197,9 @@ function ThankYouPage({ data }) {
 
       <section className="ty-hero">
         <div className="container ty-hero-inner">
-          <p className="eyebrow">Your report is on its way, {firstName}</p>
-          <h1 className="ty-heading">Check {data.email}.</h1>
-          <p className="ty-sub">Your personalised revenue breakdown will be there in a few minutes.</p>
+          <p className="eyebrow">You're all set, {firstName}</p>
+          <h1 className="ty-heading">Your report<br />is on its way.</h1>
+          <p className="ty-sub">Check <strong>{data.email}</strong> — it will be there in the next few minutes.</p>
           <div className="ty-stars" aria-hidden="true">★★★★★</div>
         </div>
       </section>
