@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import './App.css'
 import virtuproLogo from './assets/virtupro-logo.png'
 import ahmedMain     from './assets/ahmed-main.png'
+import ahmedLondon   from './assets/ahmed-london.png'
 import caseZoom      from './assets/case-zoom.jpeg'
 
 // GHL form config — same location, separate form for revenue calculator
@@ -138,6 +139,7 @@ function LeadForm({ onSuccess }) {
         body: JSON.stringify(values),
       })
       if (!res.ok) throw new Error('failed')
+      if (window.fbq) window.fbq('track', 'Lead')
       onSuccess(values)
     } catch {
       setStatus('error')
@@ -247,6 +249,11 @@ function ThankYouPage({ data }) {
 
 function App() {
   const [submitted, setSubmitted] = useState(null)
+
+  useEffect(() => {
+    if (window.fbq) window.fbq('track', 'PageView')
+  }, [])
+
   if (submitted) return <ThankYouPage data={submitted} />
 
   return (
@@ -301,25 +308,25 @@ function App() {
           <div className="pain-inner">
             <div className="pain-content">
               <div className="pain-heading-row">
-                <p className="eyebrow">Where the money goes</p>
-                <h2>Three reasons most UK holiday lets earn 30-40% less than they should.</h2>
+                <p className="eyebrow">What self-managing is actually costing you</p>
+                <h2>Three things VirtuPro handles for clients that most owners are doing themselves.</h2>
               </div>
               <div className="pain-rows">
                 {[
                   {
                     i: '01',
-                    heading: 'Slow replies push your ranking down.',
-                    body: 'Airbnb\'s algorithm measures response time. Every hour you take to reply is an hour your listing drops against hosts who reply in minutes. Lower ranking means fewer views, fewer bookings, lower occupancy.',
+                    heading: 'Guest replies handled in under 3 minutes, around the clock.',
+                    body: 'Airbnb\'s algorithm measures response time. Every hour without a reply is an hour your listing drops. Our team maintains a 3-minute average response time, 24 hours a day, across every property we manage.',
                   },
                   {
                     i: '02',
-                    heading: 'Underpricing because you\'re not watching the market.',
-                    body: 'Top-managed portfolios adjust nightly rates weekly based on local demand, competitor occupancy, and seasonal trends. Most self-managing owners set a rate and leave it. That gap compounds monthly.',
+                    heading: 'Pricing adjusted weekly. Not set once and left.',
+                    body: 'VirtuPro adjusts nightly rates weekly against local demand, competitor occupancy, and seasonal trends — for every property in your portfolio. That\'s the difference behind the 12% average rate uplift our clients see.',
                   },
                   {
                     i: '03',
-                    heading: 'You\'re absorbing costs that Airbnb should cover.',
-                    body: 'The average UK host loses £12,000 a year in unfiled or abandoned damage claims. The process feels complex. Most owners write the cost off. That\'s not a property problem, it\'s a process problem.',
+                    heading: 'Every damage claim filed. 9 out of 10 won.',
+                    body: 'The average UK host loses £12,000 a year in abandoned damage claims. Our team files every single one, manages the Airbnb process end to end, and wins 9 out of 10. You do not write anything off.',
                   },
                 ].map(row => (
                   <div className="pain-row" key={row.i}>
@@ -334,7 +341,7 @@ function App() {
               <SectionCTA label="Get My Free Revenue Report" />
             </div>
             <div className="pain-photo-wrap">
-              <img src={ahmedMain} alt="Ahmed Khilji, VirtuPro Founder" className="pain-photo" />
+              <img src={ahmedLondon} alt="Ahmed Khilji, VirtuPro Founder" className="pain-photo" />
             </div>
           </div>
         </div>
@@ -371,11 +378,11 @@ function App() {
             <h2>Five numbers every UK holiday let owner needs to know</h2>
           </div>
           {[
-            { n: '01', title: 'Your exact revenue gap', body: 'The pound figure between what your portfolio earns now and what it should earn at professional management benchmarks. Based on your inputs, not averages.' },
-            { n: '02', title: 'Your occupancy gap', body: 'How far your current occupancy sits from the 87% benchmark achieved across VirtuPro\'s managed portfolio, and what filling that gap is worth monthly.' },
-            { n: '03', title: 'Your rate optimisation potential', body: 'The estimated uplift available if your nightly rate tracks local demand dynamically, as professionally managed portfolios do.' },
-            { n: '04', title: 'Your unclaimed damage recovery estimate', body: 'Based on your portfolio size, the estimated annual amount most comparable owners fail to claim back from Airbnb. Most never file.' },
-            { n: '05', title: 'Your portfolio\'s next step', body: 'Whether you implement the fixes yourself or want a team to take it on, we map the exact levers to pull for your specific situation.' },
+            { n: '01', title: 'Your exact revenue gap', body: 'The pound figure between what your portfolio earns now and what it earns under VirtuPro management. Based on your inputs against our live portfolio benchmarks.' },
+            { n: '02', title: 'Your occupancy gap', body: 'How far your current occupancy sits from the 87% our team maintains across 2,000+ units — and what closing that gap would add to your monthly income.' },
+            { n: '03', title: 'Your rate uplift potential', body: 'The revenue available from dynamic pricing alone. Our team adjusts every listing weekly. The 12% average uplift in the calculator is what clients see in practice.' },
+            { n: '04', title: 'Your unclaimed damage recovery', body: 'Based on your portfolio size, the estimated annual amount sitting in unfiled Airbnb claims. Our team files every one. Most owners have never filed a single claim.' },
+            { n: '05', title: 'What VirtuPro does first', body: 'When we take on a portfolio, three things change in the first 30 days. Your report includes exactly what those are for a portfolio your size — and the results clients see after.' },
           ].map(item => (
             <div className="inside-item" key={item.n}>
               <span className="inside-n">{item.n}</span>

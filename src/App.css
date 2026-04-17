@@ -616,7 +616,7 @@ a { text-decoration: none; }
   position: relative;
 }
 .final-list li::before {
-  content: '—';
+  content: '✓';
   position: absolute;
   left: 0;
   color: var(--orange);
@@ -733,7 +733,7 @@ a { text-decoration: none; }
   padding-left: 20px;
   position: relative;
 }
-.ty-list li::before { content: '—'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
+.ty-list li::before { content: '✓'; position: absolute; left: 0; color: var(--orange); font-weight: 700; }
 .ty-qualify-box {
   background: var(--on-cream);
   border-radius: 12px;
@@ -782,4 +782,66 @@ a { text-decoration: none; }
   .calc-shell { border-radius: 12px; }
   .calc-inputs { padding: 20px; }
   .calc-results { padding: 20px; }
+}
+
+@media (max-width: 480px) {
+  .site-logo-img { height: 38px; }
+  .header-cta { font-size: 13px; padding: 8px 14px; }
+
+  .hero { padding-block: 40px 32px; }
+  .hero h1 { font-size: clamp(28px, 8vw, 38px); }
+  .hero .subline { font-size: 15px; }
+  .hero-trust { flex-direction: column; gap: 6px; align-items: flex-start; }
+  .hero-trust-item { font-size: 13px; }
+
+  .stats-bar { padding-block: 24px; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .stat-num { font-size: clamp(22px, 6vw, 28px); }
+  .stat-label { font-size: 11px; }
+
+  .calc-shell { flex-direction: column; }
+  .calc-inputs { padding: 16px; }
+  .calc-results { padding: 16px; }
+  .calc-result-num { font-size: clamp(24px, 7vw, 32px); }
+  .calc-gap-num { font-size: clamp(28px, 8vw, 40px); }
+  .calc-run-btn { font-size: 15px; padding: 14px; }
+  .calc-cta-btn { font-size: 15px; padding: 14px; }
+
+  .pain { padding-block: 48px; }
+  .pain-heading-row h2 { font-size: clamp(22px, 6vw, 30px); }
+  .pain-row { gap: 12px; }
+  .pain-index { font-size: 28px; }
+
+  .client-result-section { padding-block: 48px; }
+  .case-result { font-size: clamp(22px, 6vw, 30px); }
+  .ahmed-case-img { display: none; }
+
+  .inside { padding-block: 48px; }
+  .inside-heading-row h2 { font-size: clamp(22px, 6vw, 28px); }
+  .inside-item { gap: 12px; }
+  .inside-n { font-size: 28px; min-width: 28px; }
+
+  .ahmed { padding-block: 48px; }
+  .ahmed-bio h2 { font-size: clamp(20px, 5.5vw, 26px); }
+  .ahmed-badges { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+  .badge-num { font-size: 22px; }
+
+  .final-cta { padding-block: 48px; }
+  .final-cta h2 { font-size: clamp(22px, 6vw, 28px); }
+  .final-list li { font-size: 14px; }
+
+  .form-card { padding: 20px 16px; }
+  .lead-form input,
+  .lead-form select { font-size: 16px; padding: 12px 14px; }
+  .submit-btn { font-size: 15px; padding: 14px; }
+
+  .section-cta-btn { font-size: 15px; padding: 14px 20px; width: 100%; }
+
+  .ty-hero { padding-block: 48px; }
+  .ty-heading { font-size: clamp(26px, 7vw, 36px); }
+  .ty-pitch { padding-block: 40px; }
+  .ty-pitch-heading { font-size: clamp(20px, 5.5vw, 28px); }
+  .ty-qualify-box { padding: 18px; }
+
+  .footer-inner { flex-direction: column; align-items: flex-start; gap: 12px; }
 }
