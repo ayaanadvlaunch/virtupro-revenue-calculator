@@ -208,7 +208,7 @@ function ThankYouPage({ data }) {
         <div className="container ty-pitch-single">
           <p className="eyebrow">One more thing</p>
           <h2 className="ty-pitch-heading">
-            Someone from Ahmed's team will reach out shortly.
+            Someone from VirtuPro will reach out shortly.
           </h2>
           <p className="ty-pitch-body">
             A 30-minute call, usually reserved for VirtuPro's existing clients. Free for qualified UK holiday let owners.
@@ -249,10 +249,6 @@ function ThankYouPage({ data }) {
 
 function App() {
   const [submitted, setSubmitted] = useState(null)
-
-  useEffect(() => {
-    if (window.fbq) window.fbq('track', 'PageView')
-  }, [])
 
   if (submitted) return <ThankYouPage data={submitted} />
 
